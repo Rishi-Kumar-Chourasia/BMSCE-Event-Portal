@@ -1,0 +1,611 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --master-grad: linear-gradient(
+    270deg,
+    #ffffff,
+    #00c6ff,
+    #0072ff,
+    #00e5ff,
+    #ffffff,
+    white,
+    rgb(245, 245, 110),
+    orange,
+    rgb(245, 245, 110),
+    white
+  );
+  --blue-grad: linear-gradient(
+    90deg,
+    #ffffff,
+    #00c6ff,
+    #0072ff,
+    #00e5ff,
+    #ffffff
+  );
+
+  --orange-grad: linear-gradient(
+    90deg,
+    white,
+    rgb(245, 245, 110),
+    orange,
+    rgb(245, 245, 110),
+    white
+  );
+
+  --master-pulse-nav: linear-gradient(
+    90deg,
+    white,
+    #00c6ff,
+    #0072ff,
+    #00e5ff,
+    black,
+    black,
+    black,
+    white,
+    rgb(245, 245, 110),
+    orange,
+    rgb(245, 245, 110),
+    white,
+    black,
+    black,
+    black,
+    white,
+    #00c6ff,
+    #0072ff,
+    #00e5ff
+  );
+  --white-pulse-nav: linear-gradient(
+    90deg,
+    white,
+    white,
+    white,
+    white,
+    white,
+    black,
+    black,
+    white,
+    white,
+    white,
+    white,
+    white
+  );
+
+  --blue-pulse-nav: linear-gradient(
+    90deg,
+    #ffffff,
+    #00c6ff,
+    #0072ff,
+    #ffffff,
+    #00c6ff,
+    #0072ff,
+    black,
+    black,
+    black,
+    #00e5ff,
+    #00c6ff,
+    #ffffff,
+    #00e5ff,
+    #00c6ff,
+    #ffffff
+  );
+
+  --orange-pulse-nav: linear-gradient(
+    90deg,
+    white,
+    rgb(245, 245, 110),
+    orange,
+    rgb(245, 245, 110),
+    black,
+    black,
+    black,
+    white,
+    rgb(245, 245, 110),
+    orange
+  );
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+  a {
+    text-decoration: none;
+  }
+}
+
+.nav-container {
+  width: 100%;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+}
+
+/* Add top padding so landing doesn't sit under navbar */
+.landing {
+  width: 100%;
+  padding: 20px;
+  background: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+}
+.branding {
+  background-color: black;
+}
+
+.content {
+  width: 100vw;
+  padding: 2rem;
+  background: black;
+}
+
+/* Footer */
+.footer {
+  width: 100vw;
+  padding: 2rem;
+  background: #343a40;
+  color: white;
+  text-align: center;
+}
+
+/* nav bar part complete */
+nav {
+  margin-top: 10px;
+  top: 0;
+  left: 50%; /* move the origin to the center */
+  transform: translateX(-50%);
+  position: fixed;
+  width: 95%;
+  height: 64px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  transition: box-shadow 0.3s ease-in-out;
+  z-index: 9999;
+}
+nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--master-pulse-nav);
+  background-size: 600% 600%;
+  animation: nav-flow 5s linear infinite;
+  border-radius: inherit;
+  z-index: 10;
+}
+nav::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: rgb(17, 17, 17);
+  border-radius: calc(50px - 3px);
+  z-index: 11;
+}
+nav:hover {
+  box-shadow: 0 0 20px 5px rgba(100, 101, 101, 0.7),
+    0 0 30px 10px rgba(255, 255, 255, 0.5);
+}
+.logo {
+  height: 40px;
+  z-index: 12;
+}
+.nav-left a {
+  position: relative;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+}
+.nav-right a {
+  position: relative;
+  z-index: 12;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  margin-left: 20px;
+  margin-right: 25px;
+  font-weight: bold;
+}
+.nav-right a:hover {
+  background: var(--master-grad);
+  background-size: 600% 600%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flow 8s linear infinite;
+}
+
+/* animations */
+@keyframes flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes nav-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* footer */
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: black;
+  color: rgba(128, 128, 128, 0.7);
+  text-align: center;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.footer-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 5px;
+}
+
+.footer img {
+  height: 15px;
+  width: 15px;
+}
+
+.branding {
+  width: 100%;
+  margin-top: 20vh;
+  margin-bottom: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.branding img {
+  width: 150px;
+  height: 150px;
+}
+
+.branding h1 {
+  font-size: 100px;
+  background: var(--master-grad);
+  font-weight: 600;
+  background-size: 600% 600%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flow 8s linear infinite;
+  text-decoration: none;
+}
+
+/* buttons */
+.lower-main {
+  background-color: black;
+  text-align: center;
+  /* border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
+  padding: 20px;
+}
+.lower-main h3 {
+  font-weight: 600;
+  font-size: 40px;
+  color: rgb(61, 61, 61);
+}
+.button-container {
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-button {
+  width: 200px;
+  height: 75px;
+  background-color: white;
+  margin-right: 5vw;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out,
+    transform 0.4s ease-in-out;
+}
+.student-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(270deg, #00c6ff, white, #00e5ff);
+  background-size: 600% 600%;
+  animation: flow 8s linear infinite;
+  border-radius: inherit;
+  z-index: 0;
+}
+.student-button::after {
+  content: "";
+  position: absolute;
+  inset: 2px; /* border thickness */
+  background: black;
+  border-radius: 23px;
+  z-index: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+.student-button:hover::after {
+  opacity: 0;
+}
+.student-button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 50px #00c6ff, 0 0 100px #0072ff;
+  background-color: #00b4ff;
+}
+.student-button:hover span {
+  background: rgb(4, 158, 219);
+  background-size: 600% 600%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.student-button span {
+  position: relative;
+  z-index: 2;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 600;
+  background: linear-gradient(270deg, #00c6ff, #ffffff, #00e5ff);
+  background-size: 600% 600%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flow 8s linear infinite;
+  text-decoration: none;
+}
+
+.club-button {
+  width: 200px;
+  height: 75px;
+  background-color: white;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out,
+    transform 0.4s ease-in-out;
+}
+.club-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(270deg, #ff7f00, #ffffff, #ffc300);
+  background-size: 600% 600%;
+  animation: flow 8s linear infinite;
+  border-radius: inherit;
+  z-index: 0;
+}
+.club-button::after {
+  content: "";
+  position: absolute;
+  inset: 2px; /* border thickness */
+  background: black;
+  border-radius: 23px;
+  z-index: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+.club-button:hover::after {
+  opacity: 0;
+}
+.club-button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 50px #ff7f00, 0 0 100px #f2dd9a;
+  background-color: #00b4ff;
+}
+.club-button:hover span {
+  background: rgb(238, 113, 4);
+  background-size: 600% 600%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.club-button span {
+  position: relative;
+  z-index: 2;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 600;
+  background: linear-gradient(270deg, #ff7f00, #ffffff, #ffc300);
+  background-size: 600% 600%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flow 8s linear infinite;
+  text-decoration: none;
+}
+
+/* Events Section */
+.events-section {
+  padding: 3rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.events-section h2 {
+  font-weight: 400;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  background: var(--orange-grad);
+  background-size: 600% 600%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flow 8s linear infinite;
+}
+
+/* Scroll container */
+.events-scroll {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.2rem;
+
+  width: 90%;
+  max-width: 1200px;
+
+  max-height: 70vh; /* internal scroll */
+  overflow-y: auto;
+  padding: 10px;
+  padding-right: 30px;
+}
+
+/* Hide horizontal scroll: */
+.events-scroll {
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.events-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* Event Card — square-ish layout */
+.event-card {
+  background: black;
+  color: white;
+  border-radius: 15px;
+  padding: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  height: 200px; /* makes them square-high */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow: 5px 7px 10px rgba(105, 223, 253, 0.1);
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+/* Hover Animation */
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 12px 12px 22px rgba(0, 114, 255, 0.35),
+    0 10px 18px rgba(0, 198, 255, 0.3);
+}
+
+.event-card h3 {
+  background: var(--blue-grad);
+  background-size: 600% 600%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flow 8s linear infinite;
+}
+
+.event-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.club-name {
+  font-size: 1rem;
+  font-style: italic;
+  background: var(--white-pulse-nav);
+  background-size: 600% 600%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flow 25s linear infinite;
+}
+
+.event-info {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.last-date {
+  font-size: 0.9rem;
+  color: rgb(12, 122, 153);
+  font-weight: 600;
+}
+
+.club-scrolls {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+  padding-bottom: 50px;
+}
+.club-scrolls h3 {
+  padding: 20px;
+  font-weight: 400;
+  font-size: 2rem;
+  margin-bottom: rem;
+  background: var(--orange-grad);
+  background-size: 600% 600%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flow 8s linear infinite;
+}
+
+.club-marquee {
+  padding: 12px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.club-track {
+  display: inline-flex;
+  animation: scroll 30s linear infinite;
+}
+
+/* Reverse scroll direction for alternating rows */
+.club-track.reverse {
+  animation-direction: reverse;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.club-card {
+  min-width: 200px;
+  background: #000;
+  padding: 18px 20px;
+  margin: 15px 15px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  border: 1px solid transparent;
+  transition: transform 0.25s ease-in-out, box-shadow 0.3s ease-in-out,
+    border-color 0.3s ease-in-out;
+  background: var(--blue-pulse-nav);
+  background-size: 600% 600%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flow 30s linear infinite;
+}
+.club-card:hover {
+  transform: scale(1.1);
+  border-color: #fff;
+  box-shadow: 0 0 6px #c9f1ff, 0 0 10px #77e7ff, 0 0 15px #33dbff;
+}
