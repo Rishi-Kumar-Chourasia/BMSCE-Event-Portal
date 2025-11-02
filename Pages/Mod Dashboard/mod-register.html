@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Registration Details</title>
+
+    <!-- POPPINS FONT -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =================== BASE STYLES (MATCH MASTER THEME) =================== */
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+      }
+
+      :root {
+        --master-grad: linear-gradient(
+          270deg,
+          #ffffff,
+          #00c6ff,
+          #0072ff,
+          #00e5ff,
+          #ffffff,
+          white,
+          rgb(245, 245, 110),
+          orange,
+          rgb(245, 245, 110),
+          white
+        );
+
+        --orange-pulse-nav: linear-gradient(
+          90deg,
+          white,
+          rgb(245, 245, 110),
+          orange,
+          rgb(245, 245, 110),
+          black,
+          black,
+          black,
+          white,
+          rgb(245, 245, 110),
+          orange
+        );
+
+        --orange-grad: linear-gradient(
+          90deg,
+          white,
+          rgb(245, 245, 110),
+          orange,
+          rgb(245, 245, 110),
+          white
+        );
+
+        --blue-box-shadow: 0 0 50px #00c6ff, 0 0 100px #0072ff;
+        --orange-box-shadow: 0 0 50px #ff7f00, 0 0 100px #f2dd9a;
+      }
+
+      html,
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: black;
+        color: white;
+        overflow-x: hidden;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      main {
+        flex: 1;
+        padding: 25px;
+      }
+
+      /* ====================== PAGE HEADER ====================== */
+      .page-title {
+        font-size: 2rem;
+        color: rgb(240, 178, 124);
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-shadow: 0 0 10px #ff7f00;
+      }
+
+      /* ====================== EVENT META BOX ====================== */
+      .event-meta-box {
+        background: rgba(0, 0, 0, 0.45);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(14px);
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+        margin-bottom: 20px;
+        transition: 0.3s;
+      }
+
+      .event-meta-box:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--orange-box-shadow);
+      }
+
+      .event-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .meta-label {
+        opacity: 0.85;
+        font-weight: 500;
+      }
+
+      .reg-box {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-top: 15px;
+        color: orange;
+      }
+
+      /* ====================== EXPORT BUTTON ====================== */
+      .export-btn {
+        position: relative;
+        padding: 10px 16px;
+        font-size: 1rem;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        margin-bottom: 15px;
+        overflow: hidden;
+        background: #0072ff;
+        z-index: 1;
+      }
+
+      .export-btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--orange-grad);
+        background-size: 600% 600%;
+        animation: flow 8s linear infinite;
+        border-radius: inherit;
+        z-index: 0;
+      }
+
+      .export-btn span,
+      .export-btn {
+        position: relative;
+        z-index: 2;
+        font-weight: 600;
+        color: rgb(249, 117, 1);
+      }
+
+      .export-btn:hover {
+        transform: scale(1.1);
+        box-shadow: var(--orange-box-shadow);
+      }
+
+      /* ====================== TABLE GLASS CARD ====================== */
+      .glass-card {
+        background: rgba(0, 0, 0, 0.45);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 18px;
+        padding: 20px;
+        backdrop-filter: blur(14px);
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        color: white;
+      }
+
+      th,
+      td {
+        padding: 12px 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      th {
+        font-weight: 600;
+        color: rgb(240, 178, 124);
+      }
+
+      tr:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      /* ====================== FOOTER ====================== */
+      .footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: rgba(0, 0, 0, 0.75);
+        color: rgba(128, 128, 128, 0.7);
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+        font-size: 10px;
+        font-weight: 600;
+      }
+
+      .footer-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+        margin-bottom: 5px;
+      }
+
+      .footer img {
+        height: 15px;
+        width: 15px;
+      }
+
+      /* ====================== SCROLLBAR ====================== */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+      }
+
+      /* ====================== ANIMATIONS ====================== */
+      @keyframes flow {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="vanta-bg">
+    <main>
+      <div class="page-title">Verse Voyage Registrations</div>
+
+      <div class="event-meta-box">
+        <div class="event-row">
+          <span class="meta-label"><b>Club:</b></span>
+          <span>Inksanity</span>
+        </div>
+
+        <div class="event-row">
+          <span class="meta-label"><b>Last Date:</b></span>
+          <span>Dec 13</span>
+        </div>
+
+        <div class="reg-box">
+          Registered Count: <b id="regCount">3</b>
+        </div>
+      </div>
+
+      <button class="export-btn" onclick="exportCSV()">
+        <span>Export as CSV</span>
+      </button>
+
+      <div class="glass-card">
+        <table id="regTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>USN</th>
+              <th>Branch</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Aarav Rao</td>
+              <td>aarav@example.com</td>
+              <td>1BM23CS001</td>
+              <td>CSE</td>
+            </tr>
+            <tr>
+              <td>Neha Kapoor</td>
+              <td>neha@example.com</td>
+              <td>1BM23EC021</td>
+              <td>ECE</td>
+            </tr>
+            <tr>
+              <td>Rohan Kumar</td>
+              <td>rohan@example.com</td>
+              <td>1BM23ME050</td>
+              <td>ME</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-header">
+        <img src="../../Data/Images/logo.png" alt="Logo" />
+        <p>BMSCE Club Events</p>
+      </div>
+      <p>
+        Empowering student communities through collaboration, innovation, and
+        creativity.
+      </p>
+      <p class="copyright">
+        © 2025 BMSCE Club Events. All rights reserved.
+      </p>
+    </footer>
+
+    <script>
+      /* Export table as CSV */
+      function exportCSV() {
+        let table = document.getElementById("regTable");
+        let rows = Array.from(table.querySelectorAll("tr"));
+        let csv = rows
+          .map((row) =>
+            Array.from(row.querySelectorAll("th,td"))
+              .map((cell) => cell.innerText)
+              .join(",")
+          )
+          .join("\n");
+
+        let blob = new Blob([csv], { type: "text/csv" });
+        let url = URL.createObjectURL(blob);
+
+        let a = document.createElement("a");
+        a.href = url;
+        a.download = "registrations.csv";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+
+      /* Auto update count dynamically */
+      const regCount =
+        document.getElementById("regTable").querySelectorAll("tbody tr").length;
+      document.getElementById("regCount").textContent = regCount;
+    </script>
+
+    <!-- VANTA BACKGROUND -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.fog.min.js"></script>
+    <script>
+      VANTA.FOG({
+        el: "#vanta-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        highlightColor: 0x651200,
+        midtoneColor: 0xf75b1f,
+        lowlightColor: 0xfff900,
+        baseColor: 0x0,
+        speed: 2.2,
+        zoom: 3.0,
+      });
+    </script>
+  </body>
+</html>
