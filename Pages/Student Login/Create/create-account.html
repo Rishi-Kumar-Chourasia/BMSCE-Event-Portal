@@ -186,16 +186,7 @@
         padding-bottom: 30px;
         width: 100%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        background: linear-gradient(
-          90deg,
-          #ffffff,
-          #fce4ec,
-          #f8bbd0,
-          #f48fb1,
-          #f8bbd0,
-          #fce4ec,
-          #ffffff
-        );
+        background:var(--blue-grad);
         background-size: 600% 600%;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -207,16 +198,7 @@
       }
       form label {
         font-weight: 600;
-        background: linear-gradient(
-          90deg,
-          #ffffff,
-          #fce4ec,
-          #f8bbd0,
-          #f48fb1,
-          #f8bbd0,
-          #fce4ec,
-          #ffffff
-        );
+        background: var(--blue-grad);
         background-size: 600% 600%;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -264,16 +246,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(
-          90deg,
-          #ffffff,
-          #fce4ec,
-          #f8bbd0,
-          #f48fb1,
-          #f8bbd0,
-          #fce4ec,
-          #ffffff
-        );
+        background: var(--blue-grad);
 
         background-size: 600% 600%;
         animation: flow 8s linear infinite;
@@ -291,13 +264,13 @@
       } */
       .btn:hover {
         transform: scale(1.2);
-        box-shadow: 0 0 25px #f48fb1, 0 0 50px #ec407a;
+        box-shadow: var(--blue-box-shadow);
       }
       .btn:hover::after {
         opacity: 0;
       }
       .btn:hover span {
-        background: #e75480;
+        background: rgb(0, 0, 111);
         background-size: 600% 600%;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -305,7 +278,7 @@
       .btn span {
         position: relative;
         z-index: 2;
-        color: #e75480;
+        color: rgb(0, 0, 111);
         font-size: 17px;
         font-weight: 600;
         text-decoration: none;
@@ -317,7 +290,6 @@
         transform: scale(1.1);
       }
 
-      /* ✅ MOBILE RESPONSIVE */
       @media (max-width: 600px) {
         main {
           padding: 15px;
