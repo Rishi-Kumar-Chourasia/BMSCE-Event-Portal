@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Enter Email | BMSCE Events</title>
+    <title>BCEP | Password Reset</title>
+    <link rel="icon" type="image/png" href="../../../Data/Images/logo.png" />
 
     <style>
       /* Google Font */
@@ -71,8 +72,8 @@
         --orange-box-shadow: 0 0 15px #ff7f00, 0 0 30px #efcb55;
         --blue-box-shadow: 0 0 25px #00c6ff, 0 0 50px #0072ff;
         --green-box-shadow: 0 0 15px #a6e6a6, 0 0 30px #8fdc8f;
-        --purple-box-shadow: 0 0 25px #b39ddb, 0 0 50px #9575cd, 0 0 10px #7e57c2;
-
+        --purple-box-shadow: 0 0 25px #b39ddb, 0 0 50px #9575cd,
+          0 0 10px #7e57c2;
       }
 
       html,
@@ -221,10 +222,60 @@
       .btn span {
         position: relative;
         z-index: 2;
-        color: #4b2c7f; 
+        color: #4b2c7f;
         font-size: 15px;
         font-weight: 600;
         text-decoration: none;
+      }
+
+      @media (max-width: 600px) {
+        main {
+          padding: 10px;
+        }
+
+        .form-container {
+          margin-top: 60px;
+          width: 100%;
+          text-align: center;
+        }
+
+        .form-container h2 {
+          font-size: 28px;
+          margin-bottom: 15px;
+        }
+
+        label {
+          font-size: 18px;
+        }
+
+        input {
+          width: 90%;
+          max-width: 350px;
+          font-size: 16px;
+          height: 40px;
+          padding: 8px;
+        }
+
+        .btn {
+          width: 90%;
+          max-width: 250px;
+          height: 45px;
+          font-size: 16px;
+          margin-top: 25px;
+        }
+
+        .btn span {
+          font-size: 15px;
+        }
+
+        .footer {
+          font-size: 10px;
+          padding: 14px 8px;
+        }
+
+        .footer-header {
+          gap: 6px;
+        }
       }
     </style>
   </head>

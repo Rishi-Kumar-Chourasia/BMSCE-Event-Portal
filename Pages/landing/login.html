@@ -3,361 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BMSCE Events</title>
-
-    <style>
-      /* Google Font */
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-      }
-      :root {
-        --master-pulse-nav: linear-gradient(
-          90deg,
-          white,
-          #00c6ff,
-          #0072ff,
-          #00e5ff,
-          black,
-          black,
-          black,
-          white,
-          rgb(245, 245, 110),
-          orange,
-          rgb(245, 245, 110),
-          white,
-          black,
-          black,
-          black,
-          white,
-          #00c6ff,
-          #0072ff,
-          #00e5ff
-        );
-      }
-
-      html,
-      body {
-        height: 100%;
-        font-family: "poppins", sans-serif;
-        background-color: black;
-        color: white;
-        overflow-x: hidden;
-      }
-
-      body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-
-      main {
-        flex: 1;
-        padding: 20px;
-      }
-
-      /* Navbar*/
-      .nav-container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      nav {
-        position: relative;
-        width: 80%;
-        height: 64px;
-        margin-top: 15px;
-        border-radius: 50px;
-        overflow: hidden;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-        transition: box-shadow 0.3s ease-in-out;
-      }
-      nav::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: var(--master-pulse-nav);
-        background-size: 600% 600%;
-        animation: nav-flow 8s linear infinite;
-        border-radius: inherit;
-        z-index: 0;
-      }
-      @keyframes nav-flow {
-        0% {
-          background-position: 0% 50%;
-        }
-        100% {
-          background-position: 100% 50%;
-        }
-      }
-      nav::after {
-        content: "";
-        position: absolute;
-        inset: 3px;
-        background: rgb(17, 17, 17);
-        border-radius: calc(50px - 3px);
-        z-index: 1;
-      }
-      nav:hover {
-        box-shadow: 0 0 20px 5px rgba(100, 101, 101, 0.7),
-          0 0 30px 10px rgba(255, 255, 255, 0.5);
-      }
-      .logo {
-        height: 40px;
-        z-index: 2;
-      }
-      .nav-left {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        align-items: center;
-      }
-      .nav-right a {
-        position: relative;
-        z-index: 2;
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        margin-left: 20px;
-        margin-right: 25px;
-        font-weight: bold;
-      }
-      .nav-right a:hover {
-        background: linear-gradient(
-          270deg,
-          #ffffff,
-          #00c6ff,
-          #0072ff,
-          #00e5ff,
-          #ffffff,
-          white,
-          rgb(245, 245, 110),
-          orange,
-          rgb(245, 245, 110),
-          white
-        );
-        background-size: 600% 600%;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: flow 8s linear infinite;
-      }
-      .branding {
-        width: 100%;
-        margin-top: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .branding img {
-        width: 150px;
-        height: 150px;
-      }
-      .main-text {
-        font-size: 100px;
-
-        background: linear-gradient(
-          90deg,
-          gray,
-          gray,
-          gray,
-          gray,
-          gray,
-          rgba(0, 0, 0, 0),
-          rgba(0, 0, 0, 0),
-          rgba(0, 0, 0, 0),
-          rgba(0, 0, 0, 0),
-          gray,
-          gray,
-          gray,
-          gray,
-          gray
-        );
-        font-weight: 200;
-        background-size: 600% 600%;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: nav-flow 15s linear infinite;
-        text-decoration: none;
-      }
-
-      .button-container {
-        background-color: rgb(0, 0, 0);
-        width: 100%;
-        margin-top: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .student-button {
-        width: 200px;
-        height: 75px;
-        background-color: white;
-        margin-right: 3vw;
-        border-radius: 25px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-        transition: box-shadow 0.5s ease-in-out,
-          background-color 0.5s ease-in-out, transform 0.4s ease-in-out;
-      }
-      .student-button::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(270deg, #00c6ff, white, #00e5ff);
-        background-size: 600% 600%;
-        animation: flow 8s linear infinite;
-        border-radius: inherit;
-        z-index: 0;
-      }
-      .student-button::after {
-        content: "";
-        position: absolute;
-        inset: 2px; /* border thickness */
-        background: rgb(0, 0, 0);
-        border-radius: 23px;
-        z-index: 1;
-        transition: opacity 0.3s ease-in-out;
-      }
-      .student-button:hover::after {
-        opacity: 0;
-      }
-      .student-button:hover {
-        transform: scale(1.08);
-        box-shadow: 0 0 25px #00c6ff, 0 0 50px #0072ff;
-        background-color: #00b4ff;
-      }
-      .student-button:hover span {
-        background: rgb(4, 158, 219);
-        background-size: 600% 600%;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .student-button span {
-        position: relative;
-        z-index: 2;
-        color: rgb(255, 255, 255);
-        font-size: 20px;
-        font-weight: 600;
-        background: linear-gradient(270deg, #00c6ff, #ffffff, #00e5ff);
-        background-size: 600% 600%;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: flow 8s linear infinite;
-        text-decoration: none;
-      }
-
-      .club-button {
-        width: 200px;
-        height: 75px;
-        background-color: white;
-        margin-left: 3vw;
-        border-radius: 25px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-        transition: box-shadow 0.5s ease-in-out,
-          background-color 0.5s ease-in-out, transform 0.4s ease-in-out;
-      }
-      .club-button::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(270deg, #ff7f00, #ffffff, #ffc300);
-        background-size: 600% 600%;
-        animation: flow 8s linear infinite;
-        border-radius: inherit;
-        z-index: 0;
-      }
-      .club-button::after {
-        content: "";
-        position: absolute;
-        inset: 2px; /* border thickness */
-        background: rgb(0, 0, 0);
-        border-radius: 23px;
-        z-index: 1;
-        transition: opacity 0.3s ease-in-out;
-      }
-      .club-button:hover::after {
-        opacity: 0;
-      }
-      .club-button:hover {
-        transform: scale(1.08);
-        box-shadow: 0 0 15px #ff7f00, 0 0 30px #ffc300;
-        background-color: #00b4ff;
-      }
-      .club-button:hover span {
-        background: rgb(238, 113, 4);
-        background-size: 600% 600%;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      .club-button span {
-        position: relative;
-        z-index: 2;
-        color: rgb(255, 255, 255);
-        font-size: 20px;
-        font-weight: 600;
-        background: linear-gradient(270deg, #ff7f00, #ffffff, #ffc300);
-        background-size: 600% 600%;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: flow 8s linear infinite;
-        text-decoration: none;
-      }
-
-      /* Footer */
-      .footer {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        background-color: black;
-        color: rgba(128, 128, 128, 0.7);
-        text-align: center;
-        width: 100%;
-        padding: 10px 0;
-        font-size: 10px;
-        font-weight: 600;
-      }
-
-      .footer-header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2px;
-        margin-bottom: 5px;
-      }
-
-      .footer img {
-        height: 15px;
-        width: 15px;
-      }
-
-      @keyframes flow {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-    </style>
+    <title>BCEP | Sign in</title>
+    <link rel="icon" type="image/png" href="../../Data/Images/logo.png" />
+    <link rel="stylesheet" href="login.css" />
   </head>
 
   <body>
@@ -368,7 +16,7 @@
             <img src="../../Data/Images/logo.png" alt="Logo" class="logo" />
           </div>
           <div class="nav-right">
-            <a href="landing.html">Home</a>
+            <a href="../../index.html">Home</a>
             <a href="about.html">About</a>
           </div>
         </nav>
@@ -377,10 +25,10 @@
         <div class="main-text">Sign In</div>
       </div>
       <div class="button-container">
-        <a href="../Student Login/student-login.html" class="student-button"
+        <a href="../Student Login/login.html" class="student-button"
           ><span>Student</span></a
         >
-        <a href="../Mod Sign-in/moderator-login.html" class="club-button"
+        <a href="../Mod Login/login.html" class="club-button"
           ><span>Moderator</span></a
         >
       </div>
@@ -397,5 +45,24 @@
       </p>
       <p class="copyright">© 2025 BMSCE Club Events. All rights reserved.</p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+
+    <script>
+      VANTA.FOG({
+        el: "body",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        highlightColor: 0x0,
+        midtoneColor: 0x2c1c00,
+        lowlightColor: 0x14bced,
+        baseColor: 0x0,
+        speed: 3.0,
+        zoom: 3.0,
+      });
+    </script>
   </body>
 </html>

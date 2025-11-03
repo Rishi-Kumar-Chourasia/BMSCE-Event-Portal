@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BCEP | Moderator Dashboard</title>
+    <link rel="icon" type="image/png" href="../../Data/Images/logo.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+
+  <body>
+    <main>
+      <div class="nav-container">
+        <nav>
+          <div class="nav-left">
+            <a href="landing.html">
+              <img src="../../Data/Images/logo.png" alt="Logo" class="logo" />
+            </a>
+          </div>
+
+          <div class="nav-right">
+            <a href="#">Log Out</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="events-header">
+        <h1>Moderator Dashboard</h1>
+        <button class="create-btn" onclick="openModal()">
+          <a href="create.html"><span>+ Create New Event</span></a>
+        </button>
+      </div>
+
+      <div class="events-grid" id="events">
+        <a href="register.html">
+          <div class="event-card">
+            <img src="https://placehold.co/600x400" />
+            <div class="event-title">Verse Voyage</div>
+            <div class="event-meta"><b>Club:</b> Inksanity</div>
+            <div class="event-meta"><b>Last Date:</b> Dec 13</div>
+            <div class="event-desc">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+            </div>
+          </div>
+        </a>
+        <div class="event-card">
+          <img src="https://placehold.co/600x400" />
+          <div class="event-title">Verse Voyage</div>
+          <div class="event-meta"><b>Club:</b> Inksanity</div>
+          <div class="event-meta"><b>Last Date:</b> Dec 13</div>
+          <div class="event-desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-header">
+        <img src="../../Data/Images/logo.png" alt="Logo" />
+        <p>BMSCE Club Events</p>
+      </div>
+      <p>
+        Empowering student communities through collaboration, innovation, and
+        creativity.
+      </p>
+      <p class="copyright">© 2025 BMSCE Club Events. All rights reserved.</p>
+    </footer>
+
+    <!-- CREATE EVENT MODAL -->
+    <!-- <div class="modal-bg" id="modal-bg">
+      <div class="modal">
+        <h2>Create Event</h2>
+
+        <input type="text" id="ev-title" placeholder="Event Title" />
+        <input type="text" id="ev-club" placeholder="Club Name" />
+        <input type="text" id="ev-date" placeholder="Last Date" />
+        <input type="text" id="ev-img" placeholder="Image URL" />
+        <textarea id="ev-desc" rows="4" placeholder="Description"></textarea>
+
+        <button class="save-btn" onclick="saveEvent()">Save</button>
+        <button class="close-btn" onclick="closeModal()">Close</button>
+      </div>
+    </div> -->
+
+    <script>
+      function openModal() {
+        document.getElementById("modal-bg").style.display = "flex";
+      }
+      function closeModal() {
+        document.getElementById("modal-bg").style.display = "none";
+      }
+
+      function saveEvent() {
+        const title = ev - title.value;
+        const club = ev - club.value;
+        const date = ev - date.value;
+        const desc = ev - desc.value;
+        const img = ev - img.value;
+
+        const card = `
+          <div class="event-card">
+            <img src="${img}" />
+            <div class="event-title">${title}</div>
+            <div class="event-meta"><b>Club:</b> ${club}</div>
+            <div class="event-meta"><b>Last Date:</b> ${date}</div>
+            <div class="event-desc">${desc}</div>
+          </div>
+        `;
+
+        document.getElementById("events").innerHTML += card;
+        closeModal();
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.fog.min.js"></script>
+    <script>
+      VANTA.FOG({
+        el: "body",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        highlightColor: 0x0,
+        midtoneColor: 0x0,
+        lowlightColor: 0xf79610,
+        baseColor: 0x0,
+        speed: 3.0,
+        zoom: 3.0,
+      });
+    </script>
+  </body>
+</html>

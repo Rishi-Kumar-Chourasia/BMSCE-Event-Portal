@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Account Creation Success | BMSCE Events</title>
+    <title>BCEP | Create Account</title>
+    <link rel="icon" type="image/png" href="../../../Data/Images/logo.png" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
@@ -144,6 +145,40 @@
           background-position: 100% 50%;
         }
       }
+
+      @media (max-width: 600px) {
+        .header img {
+          height: 20px;
+          width: 20px;
+        }
+
+        .header h2 {
+          font-size: 16px;
+        }
+
+        #welcome-gif {
+          width: 250px;
+          margin-top: 60px;
+          margin-bottom: 40px;
+        }
+
+        .container h2 {
+          font-size: 18px;
+          margin-bottom: 60px;
+          text-align: center;
+        }
+
+        .btn {
+          width: 90%;
+          max-width: 280px;
+          padding-top: 12px;
+          padding-bottom: 12px;
+        }
+
+        .btn span {
+          font-size: 18px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -156,7 +191,7 @@
       <h2>Account Created successfully!</h2>
       <button
         type="submit"
-        onclick="window.location.href='../student-login.html'"
+        onclick="window.location.href='../login.html'"
         class="btn"
       >
         <span>Continue to Login</span>
@@ -172,7 +207,7 @@
         renderer: "svg",
         loop: false,
         autoplay: true,
-        path: "../../../data/Animations/welcome.json",
+        path: "welcome.json",
       });
       animation.addEventListener("DOMLoaded", () => {
         // FPS info (commonly ~60 but depends on JSON)

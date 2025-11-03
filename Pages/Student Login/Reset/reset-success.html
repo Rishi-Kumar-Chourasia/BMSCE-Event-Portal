@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Account Creation Success | BMSCE Events</title>
+    <title>BCEP | Password Reset</title>
+    <link rel="icon" type="image/png" href="../../../Data/Images/logo.png" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
@@ -64,8 +65,7 @@
         cursor: pointer;
         position: relative;
         overflow: hidden;
-        transition: box-shadow 1s ease-in-out,
-          background-color 0.5s ease-in-out;
+        transition: box-shadow 1s ease-in-out, background-color 0.5s ease-in-out;
       }
       .btn::before {
         content: "";
@@ -83,7 +83,6 @@
       .btn:hover {
         box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
           0 0 60px rgba(255, 255, 255, 0.5), 0 0 90px rgba(255, 255, 255, 0.4);
-
         background-color: #00b4ff;
       }
       .btn:hover span {
@@ -137,6 +136,7 @@
         animation: flow 8s linear infinite;
         text-decoration: none;
       }
+
       @keyframes flow {
         0% {
           background-position: 0% 50%;
@@ -145,40 +145,72 @@
           background-position: 100% 50%;
         }
       }
+
+      @media (max-width: 600px) {
+        .header h2 {
+          font-size: 16px;
+        }
+
+        #welcome-gif {
+          margin-top: 60px;
+          width: 150px;
+        }
+
+        .container h2 {
+          font-size: 16px;
+          margin-bottom: 40px;
+          text-align: center;
+        }
+
+        .btn {
+          width: 90%;
+          max-width: 350px;
+          margin-bottom: 20px;
+          border-radius: 3px;
+        }
+
+        .btn span {
+          font-size: 20px;
+        }
+      }
     </style>
   </head>
+
   <body>
     <div class="header">
       <img src="../../../Data/Images/logo.png" alt="Logo" width="50px" />
       <h2>BMSCE EVENTS</h2>
     </div>
+
     <div class="container">
       <div id="welcome-gif"></div>
       <h2>Password has been reset successfully!</h2>
-      <button type="submit" onclick="window.location.href='../student-login.html'"class="btn"><span>Continue to Login</span></button>
+      <button
+        type="submit"
+        onclick="window.location.href='../login.html'"
+        class="btn"
+      >
+        <span>Continue to Login</span>
+      </button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
-
     <script>
-      const stopTime = 4.5; // time in seconds where animation should stop
+      const stopTime = 4.5;
       const animation = lottie.loadAnimation({
         container: document.getElementById("welcome-gif"),
         renderer: "svg",
         loop: false,
         autoplay: true,
-        path: "../../../data/Animations/success-tick.json",
+        path: "success.json",
       });
       animation.addEventListener("DOMLoaded", () => {
-        // FPS info (commonly ~60 but depends on JSON)
         const fps = animation.frameRate;
-
         const frameToStop = stopTime * fps;
-        animation.setSpeed(0.5); // optional
+        animation.setSpeed(0.5);
         animation.play();
         animation.addEventListener("enterFrame", () => {
-          const currentFrame = animation.currentFrame;
-          if (currentFrame >= frameToStop) {
+          if (animation.currentFrame >= frameToStop) {
             animation.goToAndStop(frameToStop, true);
           }
         });

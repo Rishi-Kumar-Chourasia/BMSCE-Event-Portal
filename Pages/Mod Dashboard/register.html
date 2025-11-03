@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BCEP | Event Status</title>
+    <link rel="icon" type="image/png" href="../../Data/Images/logo.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="register.css" />
+  </head>
+
+  <body id="vanta-bg">
+    <main>
+      <div class="page-title">Verse Voyage Registrations</div>
+
+      <div class="event-meta-box">
+        <div class="event-row">
+          <span class="meta-label"><b>Club:</b></span>
+          <span>Inksanity</span>
+        </div>
+
+        <div class="event-row">
+          <span class="meta-label"><b>Last Date:</b></span>
+          <span>Dec 13</span>
+        </div>
+
+        <div class="reg-box">Registered Count: <b id="regCount">3</b></div>
+      </div>
+
+      <button class="export-btn" onclick="exportCSV()">
+        <span>Export as CSV</span>
+      </button>
+
+      <div class="glass-card">
+        <table id="regTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>USN</th>
+              <th>Branch</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Rishi Kumar Chourasia</td>
+              <td>rishikumar.cs24@bmsce.ac.in</td>
+              <td>1BF24CS253</td>
+              <td>CSE</td>
+            </tr>
+            <tr>
+              <td>Saanvi Jaiswal</td>
+              <td>saanvijaiswal.cs24@bmsce.ac.in</td>
+              <td>1BF24CS260</td>
+              <td>CSE</td>
+            </tr>
+            <tr>
+              <td>Riya Ann Mathews</td>
+              <td>riyamathews.cs24@bmsce.ac.in</td>
+              <td>1BF24CS254</td>
+              <td>CSE</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-header">
+        <img src="../../Data/Images/logo.png" alt="Logo" />
+        <p>BMSCE Club Events</p>
+      </div>
+      <p>
+        Empowering student communities through collaboration, innovation, and
+        creativity.
+      </p>
+      <p class="copyright">© 2025 BMSCE Club Events. All rights reserved.</p>
+    </footer>
+
+    <script>
+      /* Export table as CSV */
+      function exportCSV() {
+        let table = document.getElementById("regTable");
+        let rows = Array.from(table.querySelectorAll("tr"));
+        let csv = rows
+          .map((row) =>
+            Array.from(row.querySelectorAll("th,td"))
+              .map((cell) => cell.innerText)
+              .join(",")
+          )
+          .join("\n");
+
+        let blob = new Blob([csv], { type: "text/csv" });
+        let url = URL.createObjectURL(blob);
+
+        let a = document.createElement("a");
+        a.href = url;
+        a.download = "registrations.csv";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+
+      /* Auto update count dynamically */
+      const regCount = document
+        .getElementById("regTable")
+        .querySelectorAll("tbody tr").length;
+      document.getElementById("regCount").textContent = regCount;
+    </script>
+
+    <!-- VANTA BACKGROUND -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.fog.min.js"></script>
+    <script>
+      VANTA.FOG({
+        el: "#vanta-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        highlightColor: 0x0,
+        midtoneColor: 0x0,
+        lowlightColor: 0xf79610,
+        baseColor: 0x0,
+        speed: 3.0,
+        zoom: 3.0,
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,422 @@
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+      }
+
+      :root {
+        --master-grad: linear-gradient(
+          270deg,
+          #ffffff,
+          #00c6ff,
+          #0072ff,
+          #00e5ff,
+          #ffffff,
+          white,
+          rgb(245, 245, 110),
+          orange,
+          rgb(245, 245, 110),
+          white
+        );
+
+        --orange-pulse-nav: linear-gradient(
+          90deg,
+          white,
+          rgb(245, 245, 110),
+          orange,
+          rgb(245, 245, 110),
+          black,
+          black,
+          black,
+          white,
+          rgb(245, 245, 110),
+          orange
+        );
+        --orange-grad: linear-gradient(
+          90deg,
+          white,
+          rgb(245, 245, 110),
+          orange,
+          rgb(245, 245, 110),
+          white
+        );
+
+        --blue-box-shadow: 0 0 50px #00c6ff, 0 0 100px #0072ff;
+        --orange-box-shadow: 0 0 50px #ff7f00, 0 0 100px #f2dd9a;
+      }
+
+      html,
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: black;
+        color: white;
+        overflow-x: hidden;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      main {
+        flex: 1;
+        padding: 20px;
+      }
+
+      /* ====================== NAVBAR ====================== */
+
+      .nav-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      nav {
+        position: relative;
+        width: 80%;
+        height: 64px;
+        margin-top: 15px;
+        border-radius: 50px;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        transition: box-shadow 0.3s ease-in-out;
+      }
+      nav::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--orange-pulse-nav);
+        background-size: 600% 600%;
+        animation: flow 8s linear infinite;
+        border-radius: inherit;
+        z-index: 0;
+      }
+      nav::after {
+        content: "";
+        position: absolute;
+        inset: 3px;
+        background: black;
+        border-radius: calc(50px - 3px);
+        z-index: 1;
+      }
+      nav:hover {
+        box-shadow: 0 0 15px #ff7f00, 0 0 30px #efcb55;
+      }
+      .logo {
+        height: 40px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-left a,
+      .nav-right a {
+        position: relative;
+        z-index: 2;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .nav-right a:hover {
+        background: var(--orange-pulse-nav);
+        background-size: 600% 600%;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: flow 8s linear infinite;
+      }
+
+      /* ================== EVENT CARDS ================== */
+      .events-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
+      }
+
+      .events-header h1 {
+        font-size: 2rem;
+        color: rgb(240, 178, 124);
+      }
+
+      .create-btn {
+        position: relative;
+        padding: 10px 16px;
+        font-size: 1rem;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        color: white;
+        transition: 0.25s;
+      }
+      .create-btn:hover {
+        transform: scale(1.05);
+      }
+
+      .create-btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--orange-grad);
+        background-size: 600% 600%;
+        animation: flow 8s linear infinite;
+        border-radius: inherit;
+        z-index: 0;
+      }
+
+      .create-btn:hover {
+        transform: scale(1.1);
+        box-shadow: var(--orange-box-shadow);
+      }
+      .create-btn span {
+        position: relative;
+        z-index: 2;
+        color: rgb(249, 117, 1);
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .events-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+        margin-bottom: 70px;
+      }
+
+      .event-card {
+        background: rgba(0, 0, 0, 0.45);
+        color: wheat;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(14px);
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: 0.3s;
+      }
+
+      .event-card:hover {
+        transform: translateY(-3px);
+      }
+
+      .event-card img {
+        width: 100%;
+        border-radius: 10px;
+        height: 240px;
+        object-fit: cover;
+      }
+
+      .event-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+
+      .event-meta {
+        font-size: 0.9rem;
+        opacity: 0.85;
+      }
+
+      .event-desc {
+        font-size: 0.9rem;
+        opacity: 0.85;
+        max-height: 120px;
+        overflow-y: auto;
+      }
+
+      .modal-bg {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(6px);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+      }
+
+      .modal {
+        background: rgba(20, 20, 20, 0.9);
+        padding: 25px;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 14px;
+      }
+
+      .modal h2 {
+        margin-bottom: 15px;
+      }
+
+      .modal input,
+      .modal textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        border: 1px solid #333;
+        background: #111;
+        color: white;
+      }
+
+      .modal button {
+        padding: 10px 15px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .save-btn {
+        background: #0072ff;
+        color: white;
+      }
+
+      .close-btn {
+        background: #444;
+        color: white;
+      }
+
+      .footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: rgba(128, 128, 128, 0.7);
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+        font-size: 10px;
+        font-weight: 600;
+      }
+
+      .footer-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+        margin-bottom: 5px;
+      }
+
+      .footer img {
+        height: 15px;
+        width: 15px;
+      }
+
+      @keyframes flow {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+   
+
+      @media (max-width: 1024px) {
+        nav {
+          width: 90%;
+          height: 60px;
+          padding: 0 14px;
+        }
+
+        .events-header h1 {
+          font-size: 1.7rem;
+        }
+
+        .events-grid {
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 18px;
+        }
+
+        .event-card img {
+          height: 200px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          width: 92%;
+          height: 58px;
+        }
+
+        .events-header {
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+        }
+
+        .events-header h1 {
+          font-size: 1.5rem;
+        }
+
+        .create-btn {
+          padding: 10px 14px;
+          font-size: 0.9rem;
+        }
+
+        .events-grid {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+
+        .event-card {
+          padding: 15px;
+        }
+
+        .event-title {
+          font-size: 1.15rem;
+        }
+
+        .event-meta,
+        .event-desc {
+          font-size: 0.9rem;
+        }
+
+        .footer {
+          font-size: 9px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        nav {
+          width: 95%;
+          height: 52px;
+          padding: 0 10px;
+        }
+
+        .nav-right a {
+          font-size: 15px;
+        }
+
+        .events-header h1 {
+          font-size: 1.3rem;
+        }
+
+        .create-btn {
+          width: 100%;
+          display: block;
+          text-align: center;
+        }
+
+        .event-card img {
+          height: 170px;
+        }
+
+        .event-title {
+          font-size: 1.05rem;
+        }
+
+        .event-desc {
+          max-height: 100px;
+        }
+      }

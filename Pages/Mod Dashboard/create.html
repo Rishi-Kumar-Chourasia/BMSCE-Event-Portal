@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BCEP | Create New Event</title>
+    <link rel="icon" type="image/png" href="../../Data/Images/logo.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+   <link rel="stylesheet" href="create.css">
+  </head>
+
+  <body id="vanta-bg">
+    <main>
+      <div class="glass-card">
+        <div class="heading">Create Event</div>
+
+        <div>
+          <label>Event Poster (A4 preferred)</label>
+          <input type="file" id="poster" accept="image/*" />
+        </div>
+
+        <div>
+          <label>Event Name</label>
+          <input type="text" id="event-name" placeholder="Enter event name" />
+        </div>
+
+        <div>
+          <label>Description</label>
+          <textarea
+            id="event-desc"
+            placeholder="Enter event description"
+          ></textarea>
+        </div>
+
+        <div>
+          <label>Last Date</label>
+          <input type="date" id="event-date" />
+        </div>
+
+        <div>
+          <label>Tags</label>
+          <div class="tags-container" id="tagsList"></div>
+        </div>
+
+        <button class="submit-btn" onclick="submitEvent()">
+          <span>Create Event</span>
+        </button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-header">
+        <img src="../../Data/Images/logo.png" alt="Logo" />
+        <p>BMSCE Club Events</p>
+      </div>
+      <p>
+        Empowering student communities through collaboration, innovation, and
+        creativity.
+      </p>
+      <p>© 2025 BMSCE Club Events. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const tags = [
+        "coding",
+        "dance",
+        "outdoor",
+        "music",
+        "drama",
+        "logic",
+        "adventure",
+        "live",
+        "cultural",
+        "sports",
+        "arts",
+        "debate",
+        "photography",
+        "social",
+        "workshop",
+      ];
+
+      const tagsContainer = document.getElementById("tagsList");
+
+      function submitEvent() {
+        const name = document.getElementById("event-name").value;
+        const desc = document.getElementById("event-desc").value;
+        const date = document.getElementById("event-date").value;
+        const activeTags = [
+          ...document.querySelectorAll(".tag-chip.active"),
+        ].map((el) => el.dataset.tag);
+
+        alert(
+          `Event Created!\n\nName: ${name}\nDate: ${date}\nTags: ${activeTags.join(
+            ", "
+          )}`
+        );
+      }
+      tags.forEach((t) => {
+        let btn = document.createElement("div");
+        btn.className = "tag-chip";
+
+        let txt = document.createElement("span");
+        txt.innerText = t.charAt(0).toUpperCase() + t.slice(1);
+
+        btn.appendChild(txt);
+
+        btn.dataset.tag = t;
+
+        btn.addEventListener("click", () => {
+          btn.classList.toggle("active");
+        });
+
+        tagsContainer.appendChild(btn);
+      });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.fog.min.js"></script>
+    <script>
+      VANTA.FOG({
+        el: "#vanta-bg",
+               mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        highlightColor: 0x0,
+        midtoneColor: 0x0,
+        lowlightColor: 0xf79610,
+        baseColor: 0x0,
+        speed: 3.0,
+        zoom: 3.0,
+      });
+    </script>
+  </body>
+</html>

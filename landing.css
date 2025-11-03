@@ -22,7 +22,6 @@
     #00e5ff,
     #ffffff
   );
-
   --orange-grad: linear-gradient(
     90deg,
     white,
@@ -31,24 +30,23 @@
     rgb(245, 245, 110),
     white
   );
-
   --master-pulse-nav: linear-gradient(
     90deg,
     white,
     #00c6ff,
     #0072ff,
     #00e5ff,
-    black,
-    black,
-    black,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
     white,
     rgb(245, 245, 110),
     orange,
     rgb(245, 245, 110),
     white,
-    black,
-    black,
-    black,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
     white,
     #00c6ff,
     #0072ff,
@@ -61,15 +59,14 @@
     white,
     white,
     white,
-    black,
-    black,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
     white,
     white,
     white,
     white,
     white
   );
-
   --blue-pulse-nav: linear-gradient(
     90deg,
     #ffffff,
@@ -78,9 +75,9 @@
     #ffffff,
     #00c6ff,
     #0072ff,
-    black,
-    black,
-    black,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
     #00e5ff,
     #00c6ff,
     #ffffff,
@@ -88,7 +85,6 @@
     #00c6ff,
     #ffffff
   );
-
   --orange-pulse-nav: linear-gradient(
     90deg,
     white,
@@ -103,6 +99,7 @@
     orange
   );
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -113,9 +110,10 @@ html,
 body {
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
-  a {
-    text-decoration: none;
-  }
+}
+
+a {
+  text-decoration: none;
 }
 
 .nav-container {
@@ -124,43 +122,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: orange;
 }
 
-/* Add top padding so landing doesn't sit under navbar */
-.landing {
-  width: 100%;
-  padding: 20px;
-  background: black;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  font-size: 2rem;
-}
-.branding {
-  background-color: black;
-}
-
-.content {
-  width: 100vw;
-  padding: 2rem;
-  background: black;
-}
-
-/* Footer */
-.footer {
-  width: 100vw;
-  padding: 2rem;
-  background: #343a40;
-  color: white;
-  text-align: center;
-}
-
-/* nav bar part complete */
 nav {
   margin-top: 10px;
   top: 0;
-  left: 50%; /* move the origin to the center */
+  left: 50%;
   transform: translateX(-50%);
   position: fixed;
   width: 95%;
@@ -173,6 +140,7 @@ nav {
   transition: box-shadow 0.3s ease-in-out;
   z-index: 9999;
 }
+
 nav::before {
   content: "";
   position: absolute;
@@ -183,38 +151,42 @@ nav::before {
   border-radius: inherit;
   z-index: 10;
 }
+
 nav::after {
   content: "";
   position: absolute;
   inset: 3px;
-  background: rgb(17, 17, 17);
+  background: black;
   border-radius: calc(50px - 3px);
   z-index: 11;
 }
+
 nav:hover {
   box-shadow: 0 0 20px 5px rgba(100, 101, 101, 0.7),
     0 0 30px 10px rgba(255, 255, 255, 0.5);
 }
+
 .logo {
   height: 40px;
   z-index: 12;
 }
+
 .nav-left a {
   position: relative;
   z-index: 12;
   display: flex;
   align-items: center;
 }
+
 .nav-right a {
   position: relative;
   z-index: 12;
   color: white;
-  text-decoration: none;
   font-size: 18px;
-  margin-left: 20px;
-  margin-right: 25px;
   font-weight: bold;
+  margin: 0 25px 0 20px;
 }
+
 .nav-right a:hover {
   background: var(--master-grad);
   background-size: 600% 600%;
@@ -223,69 +195,40 @@ nav:hover {
   animation: flow 8s linear infinite;
 }
 
-/* animations */
-@keyframes flow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@keyframes nav-flow {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-
-/* footer */
-.footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: black;
-  color: rgba(128, 128, 128, 0.7);
-  text-align: center;
+.landing {
   width: 100%;
-  padding: 10px 0;
-  font-size: 10px;
-  font-weight: 600;
-}
-
-.footer-header {
+  padding: 20px;
+  /* bgblhere */
+  color: white;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2px;
-  margin-bottom: 5px;
+  flex-direction: column;
+  font-size: 2rem;
 }
 
-.footer img {
-  height: 15px;
-  width: 15px;
+.content {
+  width: 100vw;
+  padding: 2rem;
+  /* bgblhere */
 }
 
+/* Branding */
 .branding {
   width: 100%;
-  margin-top: 20vh;
-  margin-bottom: 5vh;
+  margin: 20vh 0 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .branding img {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
 }
 
 .branding h1 {
   font-size: 100px;
-  background: var(--master-grad);
   font-weight: 600;
+  background: var(--master-grad);
   background-size: 600% 600%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -293,89 +236,23 @@ nav:hover {
   text-decoration: none;
 }
 
-/* buttons */
+/* Buttons */
 .lower-main {
-  background-color: black;
+  /* background-color: black; */
+  /* bgblhere */
   text-align: center;
-  /* border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
   padding: 20px;
 }
+
 .lower-main h3 {
   font-weight: 600;
   font-size: 40px;
   color: rgb(61, 61, 61);
 }
-.button-container {
-  background-color: rgb(0, 0, 0);
-  width: 100%;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.student-button {
-  width: 200px;
-  height: 75px;
-  background-color: white;
-  margin-right: 5vw;
-  border-radius: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out,
-    transform 0.4s ease-in-out;
-}
-.student-button::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(270deg, #00c6ff, white, #00e5ff);
-  background-size: 600% 600%;
-  animation: flow 8s linear infinite;
-  border-radius: inherit;
-  z-index: 0;
-}
-.student-button::after {
-  content: "";
-  position: absolute;
-  inset: 2px; /* border thickness */
-  background: black;
-  border-radius: 23px;
-  z-index: 1;
-  transition: opacity 0.3s ease-in-out;
-}
-.student-button:hover::after {
-  opacity: 0;
-}
-.student-button:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 50px #00c6ff, 0 0 100px #0072ff;
-  background-color: #00b4ff;
-}
-.student-button:hover span {
-  background: rgb(4, 158, 219);
-  background-size: 600% 600%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.student-button span {
-  position: relative;
-  z-index: 2;
-  color: rgb(255, 255, 255);
-  font-size: 20px;
-  font-weight: 600;
-  background: linear-gradient(270deg, #00c6ff, #ffffff, #00e5ff);
-  background-size: 600% 600%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: flow 8s linear infinite;
-  text-decoration: none;
-}
 
+
+.student-button,
 .club-button {
   width: 200px;
   height: 75px;
@@ -386,62 +263,14 @@ nav:hover {
   align-items: center;
   position: relative;
   overflow: hidden;
-  transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out,
-    transform 0.4s ease-in-out;
-}
-.club-button::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(270deg, #ff7f00, #ffffff, #ffc300);
-  background-size: 600% 600%;
-  animation: flow 8s linear infinite;
-  border-radius: inherit;
-  z-index: 0;
-}
-.club-button::after {
-  content: "";
-  position: absolute;
-  inset: 2px; /* border thickness */
-  background: black;
-  border-radius: 23px;
-  z-index: 1;
-  transition: opacity 0.3s ease-in-out;
-}
-.club-button:hover::after {
-  opacity: 0;
-}
-.club-button:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 50px #ff7f00, 0 0 100px #f2dd9a;
-  background-color: #00b4ff;
-}
-.club-button:hover span {
-  background: rgb(238, 113, 4);
-  background-size: 600% 600%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  transition: box-shadow 0.5s, background-color 0.5s, transform 0.4s;
 }
 
-.club-button span {
-  position: relative;
-  z-index: 2;
-  color: rgb(255, 255, 255);
-  font-size: 20px;
-  font-weight: 600;
-  background: linear-gradient(270deg, #ff7f00, #ffffff, #ffc300);
-  background-size: 600% 600%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: flow 8s linear infinite;
-  text-decoration: none;
-}
 
-/* Events Section */
 .events-section {
   padding: 3rem 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background: black;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -459,50 +288,38 @@ nav:hover {
   animation: flow 8s linear infinite;
 }
 
-/* Scroll container */
 .events-scroll {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 1.2rem;
-
   width: 90%;
   max-width: 1200px;
-
-  max-height: 70vh; /* internal scroll */
+  max-height: 70vh;
+  padding: 10px 30px 10px 10px;
   overflow-y: auto;
-  padding: 10px;
-  padding-right: 30px;
-}
-
-/* Hide horizontal scroll: */
-.events-scroll {
   overflow-x: hidden;
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   scrollbar-width: none;
 }
 
 .events-scroll::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
 }
 
-/* Event Card — square-ish layout */
 .event-card {
-  background: black;
+  background: rgba(0, 0, 0, 0.1);
   color: white;
   border-radius: 15px;
   padding: 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
-  height: 200px; /* makes them square-high */
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 5px 7px 10px rgba(105, 223, 253, 0.1);
-  transition: 0.25s ease;
+  transition: 0.25s;
   cursor: pointer;
 }
 
-/* Hover Animation */
 .event-card:hover {
   transform: translateY(-6px);
   box-shadow: 12px 12px 22px rgba(0, 114, 255, 0.35),
@@ -534,7 +351,7 @@ nav:hover {
 
 .event-info {
   font-size: 0.95rem;
-  color: #444;
+  color: #8e8a8a;
 }
 
 .last-date {
@@ -544,16 +361,16 @@ nav:hover {
 }
 
 .club-scrolls {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
   text-align: center;
   padding-bottom: 50px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .club-scrolls h3 {
   padding: 20px;
   font-weight: 400;
   font-size: 2rem;
-  margin-bottom: rem;
   background: var(--orange-grad);
   background-size: 600% 600%;
   background-clip: text;
@@ -573,7 +390,6 @@ nav:hover {
   animation: scroll 30s linear infinite;
 }
 
-/* Reverse scroll direction for alternating rows */
 .club-track.reverse {
   animation-direction: reverse;
 }
@@ -586,26 +402,185 @@ nav:hover {
     transform: translateX(-50%);
   }
 }
+/* .club-card-container{
+  background-color: black;
+  margin: 10px;
+  border-radius: 10px;
+} */
+
 .club-card {
   min-width: 200px;
-  background: #000;
   padding: 18px 20px;
-  margin: 15px 15px;
+  margin: 10px;
   border-radius: 12px;
   text-align: center;
   font-weight: 600;
   font-size: 18px;
-  border: 1px solid transparent;
-  transition: transform 0.25s ease-in-out, box-shadow 0.3s ease-in-out,
-    border-color 0.3s ease-in-out;
   background: var(--blue-pulse-nav);
   background-size: 600% 600%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: flow 30s linear infinite;
+  border: 1px solid transparent;
+  transition: transform 0.25s, box-shadow 0.3s, border-color 0.3s;
 }
+
 .club-card:hover {
   transform: scale(1.1);
   border-color: #fff;
   box-shadow: 0 0 6px #c9f1ff, 0 0 10px #77e7ff, 0 0 15px #33dbff;
+}
+
+.footer {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(128, 128, 128, 0.7);
+  background: rgba(0, 0, 0, 0.9);
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 5px;
+}
+
+.footer img {
+  width: 15px;
+  height: 15px;
+}
+
+@keyframes flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes nav-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    width: 92%;
+    height: 56px;
+    padding: 0 14px;
+  }
+
+  .nav-right a {
+    font-size: 14px;
+    margin: 0 10px;
+  }
+
+  .logo {
+    height: 32px;
+  }
+
+  .branding {
+    flex-direction: column;
+    margin-top: 18vh;
+    text-align: center;
+  }
+
+  .branding img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .branding h1 {
+    font-size: 55px;
+  }
+
+  .events-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .events-scroll {
+    width: 95%;
+    gap: 0.75rem;
+    padding-right: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  .event-card {
+    min-height: 160px;
+    padding: 0.9rem;
+    height: auto;
+  }
+
+  .event-title {
+    font-size: 1rem;
+  }
+
+  .club-name {
+    font-size: 0.85rem;
+  }
+
+  .event-info,
+  .last-date {
+    font-size: 0.8rem;
+  }
+
+  .club-card {
+    min-width: 140px;
+    font-size: 14px;
+    padding: 12px 10px;
+  }
+
+  .club-marquee {
+    padding: 8px 0;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .student-button,
+  .club-button {
+    width: 65%;
+    height: 60px;
+    margin-right: 0;
+  }
+
+  .footer {
+    padding: 15px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .branding h1 {
+    font-size: 40px;
+  }
+
+  .events-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .events-scroll {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .club-card {
+    min-width: 120px;
+    font-size: 12px;
+    margin: 10px;
+  }
 }
