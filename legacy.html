@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decorated Page</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      @keyframes pulseGlow {
+        0% {
+          background-color: #ff0080;
+        }
+        25% {
+          background-color: #00b7ff;
+        }
+        50% {
+          background-color: #8fff00;
+        }
+        75% {
+          background-color: #ff9900;
+        }
+        100% {
+          background-color: #ff0080;
+        }
+      }
+
+      body {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        animation: pulseGlow 1s infinite alternate ease-in-out; /* slow, safer animation */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      img {
+        z-index: 9999;
+        width: 60vw;
+        max-width: 600px;
+        border-radius: 20px;
+        box-shadow: 0 0 50px rgba(255, 255, 255, 0.8);
+        animation: pop 1.6s infinite alternate ease-in-out;
+      }
+      @keyframes pop {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.1);
+        }
+      }
+
+      @media (max-width: 600px) {
+        img {
+          width: 85vw;
+          border-radius: 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <img src="Data/Images/sagarmatha.jpg" alt="Mountain" />
+  </body>
+</html>

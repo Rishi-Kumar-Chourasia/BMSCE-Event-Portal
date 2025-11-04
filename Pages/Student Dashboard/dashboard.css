@@ -112,7 +112,7 @@ html,
 body {
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
-  background: transparent !important;
+  background: black;
 }
 
 html body a {
